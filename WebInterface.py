@@ -66,7 +66,9 @@ def test_sound():
         form = TestSoundForm(request.form)
         form.ringtone.choices = files
         if form.validate():
-            subprocess.call(["aplay", f"/root/web/ringtones/{request.form['ringtone']}"])
+            a = str(request.form['ringtone'])
+            print(a)
+            subprocess.call(["aplay", f"/root/web/ringtones/{a}"])
             return redirect(url_for('test_sound'))
     else:
         form = TestSoundForm()
