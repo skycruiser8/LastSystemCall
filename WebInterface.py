@@ -59,7 +59,7 @@ def disable():
     subprocess.call(["bash", "/root/web/audio.sh", "disable"])
     return redirect(url_for('index'))
 
-@app.route('/test_sound')
+@app.route('/test_sound', methods=["GET", "POST"])
 def test_sound():
     files = [(f,f) for f in listdir(join(getcwd(),"ringtones")) if isfile(join(getcwd(),"ringtones", f))]
     if request.method == "POST":
