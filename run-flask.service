@@ -1,0 +1,11 @@
+[Unit]
+Description=Alarm web application
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/root/bootscript/run-flask.sh start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
