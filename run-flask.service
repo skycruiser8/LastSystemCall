@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/root/bootscript/run-flask.sh start
+ExecStart=/root/web/run-flask.sh start
 Restart=always
 
 [Install]
