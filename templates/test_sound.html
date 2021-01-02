@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Test Sound{% endblock %}
+
+{% block content %}
+<h1>Test Sound</h1>
+<form method="POST">
+    {{ render_field(test_form.ringtone) }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Alarm List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr class="table-dark">
+            <th>Name</th>
+            <th>Ringtone</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Alarms -->
+        {% for alarm in alarms_list %}
+        <tr>
+            <td>{{ alarm.name }}</td>
+            <td>{{ alarm.ringtone }}</td>
+            <td>{{ alarm.time }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block volume %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Volume Control</h5>
+      <p class="card-text">Change device volume here</p>
+      <form method="POST">
+          {{ render_field(volume_form.volume) }}
+          <button type="submit" class="btn btn-primary">Change</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
