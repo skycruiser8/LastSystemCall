@@ -10,7 +10,7 @@ class AlarmManager:
         self.cron = CronTab(user='root')
     def add_alarm(self,alarm):
         self.alarm_dict[alarm.id] = alarm
-        job = self.cron.new(f"aplay /root/web/ringtones/{alarm.ringtone}")
+        job = self.cron.new(f"aplay /root/web/ringtones/{alarm.ringtone}; echo {alarm.ringtone};")
         time_format = datetime.strptime(alarm.time, "%H:%M")
         job.hour.on(int(time_format.hour))
         job.minute.on(int(time_format.minute))
